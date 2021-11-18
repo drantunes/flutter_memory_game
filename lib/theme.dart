@@ -48,6 +48,7 @@ class Round6Theme {
     ),
     appBarTheme: ThemeData.dark().appBarTheme.copyWith(
           elevation: 0,
+          centerTitle: true,
           backgroundColor: Colors.transparent,
           titleTextStyle: GoogleFonts.wendyOne(fontSize: 25),
         ),

@@ -31,7 +31,6 @@ class GamePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        centerTitle: true,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
