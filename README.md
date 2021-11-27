@@ -4,4 +4,6 @@ Este projeto exemplifica um Memory Game em Flutter com o tema da série Round 6.
 
 No projeto são mostrados os conceitos de Interface (UI) a partir de um template criado no Figma, de Animação de Flip Card para rotacionar uma carta quando o usuário toca, de gerenciamento de estado usando Provider e MobX, e também de banco de dados para manter os recordes de jogadas em cada nível do jogo. 
 
-- [Vídeo Tutorial no Youtube](https://youtube.com/)
+- [Vídeo Tutorial no Youtube](https://www.youtube.com/watch?v=hU8ht030JUM&list=PL_wKlpKIC9vVOZxwQyNzuD1lL9cJgPiiE&ab_channel=Prof.DiegoAntunes)
+
+![Screens](screens.png "Screens")
