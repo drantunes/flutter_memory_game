@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_memory_game/controllers/game_controller.dart';
 import 'package:flutter_memory_game/pages/home_page.dart';
 import 'package:flutter_memory_game/theme.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const App());
+  runApp(MultiProvider(
+    providers: [
+      Provider<GameController>(create: (_) => GameController()),
+    ],
+    child: const App(),
+  ));
 }
 
 class App extends StatelessWidget {

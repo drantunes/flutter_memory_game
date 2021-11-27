@@ -3,16 +3,19 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_memory_game/constants.dart';
+import 'package:flutter_memory_game/controllers/game_controller.dart';
+import 'package:flutter_memory_game/models/game_opcao.dart';
 import 'package:flutter_memory_game/theme.dart';
+import 'package:provider/provider.dart';
 
 class CardGame extends StatefulWidget {
   final Modo modo;
-  final int opcao;
+  final GameOpcao gameOpcao;
 
   const CardGame({
     Key? key,
     required this.modo,
-    required this.opcao,
+    required this.gameOpcao,
   }) : super(key: key);
 
   @override
@@ -39,7 +42,7 @@ class _CardGameState extends State<CardGame> with SingleTickerProviderStateMixin
 
   AssetImage getImage(double angulo) {
     if (angulo > 0.5 * pi) {
-      return AssetImage('images/${widget.opcao.toString()}.png');
+      return AssetImage('images/${widget.gameOpcao.opcao.toString()}.png');
     } else {
       return widget.modo == Modo.normal
           ? const AssetImage('images/card_normal.png')
@@ -48,10 +51,19 @@ class _CardGameState extends State<CardGame> with SingleTickerProviderStateMixin
   }
 
   flipCard() {
-    if (!animation.isAnimating) {
+    final game = context.read<GameController>();
+
+    if (!animation.isAnimating &&
+        !widget.gameOpcao.matched &&
+        !widget.gameOpcao.selected &&
+        !game.jogadaCompleta) {
       animation.forward();
-      Timer(const Duration(seconds: 2), () => animation.reverse());
+      game.escolher(widget.gameOpcao, resetCard);
     }
+  }
+
+  resetCard() {
+    animation.reverse();
   }
 
   @override
